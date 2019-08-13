@@ -10,15 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_051014) do
+ActiveRecord::Schema.define(version: 2019_08_13_054839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.bigint "customer_id_id"
+    t.bigint "merchant_id_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id_id"], name: "index_invoices_on_customer_id_id"
+    t.index ["merchant_id_id"], name: "index_invoices_on_merchant_id_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "unit_price"
+    t.bigint "merchant_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["merchant_id_id"], name: "index_items_on_merchant_id_id"
+  end
 
   create_table "merchants", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "invoice_id_id"
+    t.integer "credit_card_number"
+    t.integer "credit_card_expiration_date"
+    t.string "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id_id"], name: "index_transactions_on_invoice_id_id"
   end
 
 end
