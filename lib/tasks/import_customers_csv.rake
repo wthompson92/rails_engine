@@ -6,6 +6,5 @@ require 'csv'
      Customer.create({
        first_name: row[1],
        last_name: row[2]})
-
   end
 end
