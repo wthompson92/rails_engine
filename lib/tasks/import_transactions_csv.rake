@@ -4,10 +4,9 @@ require 'csv'
    file = "db/data/transactions.csv"
    CSV.foreach(file, :headers => true) do |row|
      Transaction.create({
-       invoice_id: row[1],
-       credit_card_number: row[2],
-       credit_card_expiration_date: row[3],
-       result: row[4]
+      invoice_id: row[1],
+      credit_card_number: row[2],
+      result: row[4]
        })
   end
 end

@@ -65,6 +65,9 @@ RSpec.configure do |config|
   end
 end
 
-SimpleCov.start 'rails'
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+end
+#SimpleCov.start 'rails'
 
 end

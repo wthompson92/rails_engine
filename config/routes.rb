@@ -7,11 +7,13 @@ Rails.application.routes.draw do
         get '/find', to: 'search#show'
         get '/find_all', to:'search#index'
       end
-      resources :merchants, only: [:index, :show]
-      resources :items, only: [:show, :index]
-      resources :customers, only: [:show, :index]
-      resources :transactions, only: [:show, :index]
-      resources :invoices, only: [:show, :index]
+
+    resources :merchants, only: [:index, :show]
+    resources :items, only: [:show, :index]
+    resources :customers, only: [:show, :index]
+    resources :invoices, only: [:show, :index]
+    resources :invoice_items, only: [:show, :index]
+    resources :transactions, only: [:show, :index]
     end
   end
 end
