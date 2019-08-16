@@ -33,5 +33,17 @@ RSpec.describe "Invoices Items", type: :request do
       expect(response).to be_successful
       expect(response).to have_http_status(:success)
     end
+
+    it "JSON body response contains expected invoice item attributes" do
+      get "/api/v1/invoice_items/#{@invoice_item.id}"
+     json_response = JSON.parse(response.body)["data"]["attributes"].keys
+     expect(json_response).to match_array(['item_id', 'invoice_id', 'quantity', 'unit_price'])
+   end
+
+   it "JSON body response contains expected invoice item data" do
+     get "/api/v1/invoice_items/#{@invoice_item.id}"
+     json_response = JSON.parse(response.body)["data"]["attributes"].values
+    expect(json_response).to match_array([@invoice_item.item_id, @invoice_item.invoice_id, @invoice_item.quantity, @invoice_item.unit_price])
+    end
   end
 end

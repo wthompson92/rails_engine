@@ -27,5 +27,17 @@ end
       expect(response).to be_successful
       expect(response).to have_http_status(:success)
     end
+
+    it "JSON body response contains expected item attributes" do
+      get "/api/v1/items/#{@item.id}"
+     json_response = JSON.parse(response.body)["data"]["attributes"].keys
+     expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
+   end
+
+   it "JSON body response contains expected item data" do
+     get "/api/v1/items/#{@item.id}"
+     json_response = JSON.parse(response.body)["data"]["attributes"].values
+    expect(json_response).to match_array([@item.id, @item.name, @item.description, @item.unit_price, @item.merchant_id])
+    end
   end
 end
