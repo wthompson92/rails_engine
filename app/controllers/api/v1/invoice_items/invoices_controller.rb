@@ -1,7 +1,7 @@
 class Api::V1::InvoiceItems::InvoicesController < ApplicationController
 
   def show
-    invoice = Invoice.where(invoice_item_id: params[:id])
+    invoice = Invoice.join_on_invoice_item((params[:id])[0])
     render json: InvoiceSerializer.new(invoice)
   end
 end

@@ -60,6 +60,13 @@ Rails.application.routes.draw do
         get '/api/v1/items/:id/best_day', to: 'most_sales#show'
       end
 
+      namespace :transactions do
+        #Relatiinship Routes
+        get '/:id/invoice', to: 'invoices#show'
+        # Buisiness Intelligence
+
+      end
+
       resources :merchants, only: [:index, :show]
       resources :items, only: [:show, :index]
       resources :customers, only: [:show, :index]
