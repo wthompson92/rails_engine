@@ -28,7 +28,7 @@ Rails.application.routes.draw do
         get '/:id/transactions', to: 'transactions#index'
 
         # Buisness Intelligence Endpoints
-        get '/:id/favorite_merchant', to: 'merchant#show'
+        get '/:id/favorite_merchant', to: 'merchants#show'
       end
 
       namespace :invoices do
