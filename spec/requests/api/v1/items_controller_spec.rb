@@ -12,13 +12,13 @@ RSpec.describe "Items", type: :request do
 
       expect(response).to be_successful
       expect(response).to have_http_status(:success)
-end
+    end
 
-  it "JSON body response contains expected item attributes" do
-    get '/api/v1/items'
+    it "JSON body response contains expected item attributes" do
+      get '/api/v1/items'
       json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
-      expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
 
+      expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
     end
 
     it "Returns Status Success" do
@@ -30,14 +30,15 @@ end
 
     it "JSON body response contains expected item attributes" do
       get "/api/v1/items/#{@item.id}"
-     json_response = JSON.parse(response.body)["data"]["attributes"].keys
-     expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
-   end
+      json_response = JSON.parse(response.body)["data"]["attributes"].keys
 
-   it "JSON body response contains expected item data" do
-     get "/api/v1/items/#{@item.id}"
-     json_response = JSON.parse(response.body)["data"]["attributes"].values
-    expect(json_response).to match_array([@item.id, @item.name, @item.description, @item.unit_price, @item.merchant_id])
+      expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
+    end
+
+    it "JSON body response contains expected item data" do
+      get "/api/v1/items/#{@item.id}"
+      json_response = JSON.parse(response.body)["data"]["attributes"].values
+      expect(json_response).to match_array([@item.id, @item.name, @item.description, @item.unit_price, @item.merchant_id])
     end
   end
 end

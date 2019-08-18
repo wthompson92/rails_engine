@@ -19,8 +19,7 @@ RSpec.describe "Merchants Items", type: :request do
       @invoice_item_1 = InvoiceItem.create(item_id: @lollipop.id, invoice_id: @invoice_1.id, quantity: 100, unit_price: @lollipop.unit_price)
       @invoice_item_2 = InvoiceItem.create(item_id: @jelly_bean.id, invoice_id: @invoice_1.id, quantity: 10, unit_price: @jelly_bean.unit_price)
       @invoice_item_3 = InvoiceItem.create(item_id: @jelly_bean.id, invoice_id: @invoice_2.id, quantity: 100, unit_price: @jelly_bean.unit_price)
-
-       end
+    end
 
     it "Returns Status Success" do
       get "/api/v1/merchants/#{@wonka.id}/items"
@@ -29,15 +28,16 @@ RSpec.describe "Merchants Items", type: :request do
       expect(response).to have_http_status(:success)
     end
 
-      it "JSON body response contains expected merchant item attributes" do
-        get "/api/v1/merchants/#{@wonka.id}/items"
-        json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
-        expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
+    it "JSON body response contains expected merchant item attributes" do
+      get "/api/v1/merchants/#{@wonka.id}/items"
+      json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
+      expect(json_response).to match_array(['id', 'name', 'description', 'unit_price', 'merchant_id'])
      end
 
-     xit "JSON body response contains expected merchant data" do
-       get "/api/v1/merchants/#{@wonka.id}/items"
-       json_response = JSON.parse(response.body)["data"][0]["attributes"].values
+    xit "JSON body response contains expected merchant data" do
+      get "/api/v1/merchants/#{@wonka.id}/items"
+      json_response = JSON.parse(response.body)["data"][0]["attributes"].values
+
       expect(json_response).to match_array([@lollipop.id, @lollipop.name, @lollipop.unit_price, @lollipop.merchant_id])
     end
   end

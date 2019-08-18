@@ -18,6 +18,5 @@ class Merchant < ApplicationRecord
 
   def self.single_merchant_revenue
     Merchant.joins([invoices: :transactions]).joins("JOIN invoice_items ON invoices.id = invoice_items.invoice_id").sum("invoice_items.unit_price*invoice_items.quantity")
-
   end
 end

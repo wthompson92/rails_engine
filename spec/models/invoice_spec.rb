@@ -8,7 +8,8 @@ RSpec.describe Invoice do
     it {should belong_to :merchant}
     it {should belong_to :customer}
   end
-    describe 'Validations' do
+
+  describe 'Validations' do
     it {should validate_presence_of :status}
   end
 end
