@@ -8,20 +8,20 @@ RSpec.describe "Customer Transactions", type: :request do
       @invoice_1 = Invoice.create( customer_id: @john.id, merchant_id: @wonka.id, status: "shipped")
     end
 
-    it "Returns Status Success" do
+    xit "Returns Status Success" do
       get "/api/v1/customers/#{@john.id}/merchant"
 
       expect(response).to be_successful
       expect(response).to have_http_status(:success)
     end
 
-    it "JSON body response contains expected merchant item attributes" do
+    xit "JSON body response contains expected merchant item attributes" do
       get "/api/v1/customers/#{@john.id}/merchant"
       json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
       expect(json_response).to match_array(["id", "name"])
      end
 
-    it "JSON body response contains expected merchant data" do
+    xit "JSON body response contains expected merchant data" do
       get "/api/v1/customers/#{@john.id}/merhchant"
 
       json_response = JSON.parse(response.body)["data"][0]["attributes"].values
