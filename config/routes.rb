@@ -16,8 +16,8 @@ Rails.application.routes.draw do
         get '/most_revenue', to: 'revenue#index'
         get '/:id/revenue', to: 'revenue#show'
         get '/api/v1/merchants/most_items?quantity=x', to: 'most_items#index'
-        get '/api/v1/merchants/revenue?date=x'
-        get '/api/v1/merchants/:id/revenue?date=x'
+        # get '/api/v1/merchants/revenue?date=x'
+      # get '/api/v1/merchants/:id/revenue?date=x'
         get  '/api/v1/merchants/:id/favorite_customer' , to: 'customer#show'
         get '/api/v1/merchants/:id/customers_with_pending_invoices' , to: 'customer#index'
       end
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
         # Relationship Endpoints
         get '/:id/transactions', to: 'transactions#index'
         get '/:id/invoice_items', to: 'invoice_items#index'
-        get '/:id/customer', to: 'customers#index'
+        get '/:id/customer', to: 'customers#show'
         get '/api/v1/invoices/:id/merchant', to: 'merchants#show'
         get '/api/v1/invoices/:id/items', to: 'items#index'
       end
