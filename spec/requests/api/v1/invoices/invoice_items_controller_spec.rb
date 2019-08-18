@@ -23,14 +23,14 @@ RSpec.describe "Invoice InvoiceItems", type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it "JSON body response contains expected merchant item attributes" do
+    it "JSON body response contains expected invoice_item attributes" do
       get "/api/v1/invoices/#{@invoice_1.id}/invoice_items"
 
       json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
       expect(json_response).to match_array(["invoice_id", "item_id", "quantity", "unit_price"])
      end
 
-    it "JSON body response contains expected merchant data" do
+    it "JSON body response contains expected invoice_item data" do
       get "/api/v1/invoices/#{@invoice_1.id}/invoice_items"
 
 

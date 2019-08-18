@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Customer Transactions", type: :request do
+RSpec.describe "Customer Merchant", type: :request do
   describe "request list of all Items for a single merchant" do
     before :each do
       @wonka = Merchant.create(name: 'Wonka')
+      
       @john = Customer.create(first_name: "John", last_name: "Smith")
       @invoice_1 = Invoice.create( customer_id: @john.id, merchant_id: @wonka.id, status: "shipped")
     end
@@ -15,7 +16,7 @@ RSpec.describe "Customer Transactions", type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    xit "JSON body response contains expected merchant item attributes" do
+    xit "JSON body response contains expected merchant attributes" do
       get "/api/v1/customers/#{@john.id}/merchant"
       json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
       expect(json_response).to match_array(["id", "name"])
