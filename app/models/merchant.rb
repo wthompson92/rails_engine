@@ -19,4 +19,12 @@ class Merchant < ApplicationRecord
   def self.single_merchant_revenue
     Merchant.joins([invoices: :transactions]).joins("JOIN invoice_items ON invoices.id = invoice_items.invoice_id").sum("invoice_items.unit_price*invoice_items.quantity")
   end
+
+  def self.join_on_invoice(merchant_id)
+    joins(:invoices).where(invoices: {id: merchant_id })
+  end
+
+  def self.join_on_item(merchant_id)
+    joins(:items).where(items: {id: merchant_id })
+  end
 end

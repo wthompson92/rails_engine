@@ -1,7 +1,7 @@
 class Api::V1::Invoices::ItemsController < ApplicationController
 
   def index
-    items = Item.where(invoice_id: params[:id])
+    items = Item.join_on_invoice((params[:id])[0])
     render json: ItemSerializer.new(items)
   end
 end
