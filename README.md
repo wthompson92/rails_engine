@@ -1,136 +1,346 @@
-
 # Endpoints
-
 ## Merchants
 ### Basic Endpoints
-##### Finder Endpoints
-- List of all Merchants
-  - [x] GET  /api/v1/merchants
-
-- Single Merchant
-  - [x] GET  /api/v1/merchants/:id(.:format)  
-
-##### Search Endpoints      
-- Finds Single Merchant by given params              
-  - [x] GET  /api/v1/merchants/find
-- Find All Merchants by given params
-  - [x] GET  /api/v1/merchants/find_all(.:format)
-
-##### Random Endpoint
-- Returns a Random Merchant
-  - [x] GET  /api/v1/merchants/random(.:format)
+#### List of all Merchants
+- Test
+  - [ ] merchants_controller_spec.rb
+- Route
+  - [ ] GET /api/v1/merchants
+- Controller  
+  - [ ] merchants_controller(index)
+#### Single Merchant
+- Test
+  - [ ] merchants_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/merchants/:id(.:format)  
+- Controller
+  - [ ]  merchants_controller.rb(show)
+#### Finds Single Merchant by given params
+- Test
+  - [ ] /merchants/search_controller_spec.rb
+- Route              
+  - [ ] GET  /api/v1/merchants/find
+- Controller
+  - [ ] /merchants/search_controller.rb(show)
+#### Find All Merchants by given params
+- Test
+  - [ ]  /merchants/search_controller_spec.rb
+- Route
+  - [ ] GET  /api/v1/merchants/find_all(.:format)
+- Controller
+  - [ ]  /merchants/search_controller.rb(index)
+#### Returns a Random Merchant
+- Test
+  - [ ] smerchants/random_controller_spec.rb
+- Route
+  - [ ] GET /api/v1/merchants/random(.:format)
+- Controller
+  - [ ]  /merchants/random_controller.rb(show)
 
 ### Relationship Endpoints  
-- Returns All Items For single merchants
-  - [x] GET /api/v1/merchants/:id/items(.:format)
-- Returns All Invoices For single merchants
-  - [x] GET /api/v1/merchants/:id/invoices(.:format)       
+#### Returns All Items For single merchants
+- Test
+  - [ ] /merchants/items_controller_spec.rb
+- Route
+  - [ ] GET /api/v1/merchants/:id/items(.:format)
+- Controller
+  - [ ] /api/v1/merchants/items_controller.rb(index)
+#### Returns All Invoices For single merchants
+
+- Test
+  - [ ] /merchants/invoices_controller_spec.rb
+- Route
+  - [ ] /merchants/:id/invoices(.:format)       
+- Controller
+  - [ ] /merchants/invoices_controller_spec.rb
 
 ### Business Intelligence Endpoints  
 
-##### All Merchants    
-- Returns the top x merchants ranked by total revenue
+#### All Merchants    
+
+##### Returns the top x merchants ranked by total revenue
+- Test
+  - [ ]  /merchants/revenue_controller_spec.rb
+- Route
   - [ ] GET /api/v1/merchants/most_revenue?quantity=x
+- Controller
+  - [ ]  /merchants/invoices_controller.rb(index)
 
-- Returns the top x merchants ranked by total number of items sold
+##### Returns the top x merchants ranked by total number of items sold
+- Test
+  - [ ]  Done?
+- Route
   - [ ] GET /api/v1/merchants/most_items?quantity=x
+- Controller
+  - [ ] Done?
 
-- Returns the total revenue for date x across all merchants                                  
+##### Returns the total revenue for date x across all merchants
+- Test  
+  - [ ] Done ?
+- Route
   - [ ] GET /api/v1/merchants/revenue?date=x
+- Controller
+  - [ ] Done ?
 
-##### Single Merchant
-- Returns the total revenue for that merchant across successful transactions
+#### Single Merchant
+
+###### Returns the total revenue for that merchant across successful transactions
+- Test
+  - [ ] Done ?
+- Route
    - [ ] GET /api/v1/merchants/:id/revenue
-- Returns the total revenue for that merchant for a specific invoice date x
-  - [ ]GET /api/v1/merchants/:id/revenue?date=x
-- Returns the customer who has conducted the most total number of successful transactions.
-  - [ ]GET /api/v1/merchants/:id/favorite_customer
+- Controller
+  - [ ] Done?
 
-- Returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of success. This means all transactions are failed. Postgres has an EXCEPT operator that might be useful. ActiveRecord also has a find_by_sql that might help.
-   - [ ] BOSS MODE: GET /api/v1/merchants/:id/customers_with_pending_invoices
+###### Returns the total revenue for that merchant for a specific invoice date x
+- Test
+  - [ ] Done ?
+- Route
+  - [ ] GET /api/v1/merchants/:id/revenue?date=x-
+- Controller
+  - [ ] Done ?
+
+###### Returns the customer who has conducted the most total number of successful transactions.
+- Test
+  - [ ] Done ?
+- Route
+  - [ ] GET /api/v1/merchants/:id/favorite_customer- Controller
+- Controller
+  - [ ] Done ?
+
+###### Returns a collection of customers which have pending (unpaid) invoices. A pending invoice has no transactions with a result of success. This means all transactions are failed. Postgres has an EXCEPT operator that might be useful. ActiveRecord also has a find_by_sql that might help.
+- Test  
+  - [ ] Done ?
+- Route
+  - [ ] BOSS MODE: GET /api/v1/merchants/:id/customers_with_pending_invoices
+- Controller  
+  - [ ] Done ?
 
 ## Items
 
-#### Basic Endpoints
-- Returns All Items
-  - [x] GET  /api/v1/items(.:format)  
-- Returns Single Item         
-  - [x] GET  /api/v1/items/:id(.:format)
+### Basic Endpoints
+
+#### Returns All Items
+
+- Test  
+  - [ ] items_controller_spec.rb
+- Route
+  - [ ] GET  /api/v1/items(.:format)  
+- Controller  
+  - [ ]  items_controller.rb(index)
+
+#### Returns Single Item
+- Test  
+  - [ ] items_controller_spec.rb     
+- Route
+  - [ ] GET  /api/v1/items/:id(.:format)
+- Controller  
+  - [ ] items_controller.rb(show)
 
 ### Relationship Endpoints  
-- Returns a collection of associated invoice items
+#### Returns a collection of associated invoice items
+- Test  
+  - [ ] items/invoice_items_controller_spec.rb
+- Route
   - [ ] GET /api/v1/items/:id/invoice_items
-- Returns the associated merchant
+- Controller
+  - [ ] items/invoice_items_controller_spec.rb
+
+#### Returns the associated merchant
+- Test  
+  - [ ] items/invoice_items_controller_spec.rb
+- Route
   - [ ] GET /api/v1/items/:id/merchant
+- Controller
+  - [ ] items/invoice_items_controller.rb(index)
 
 ### Business Intelligence Endpoints  
 
-- Returns the top x items ranked by total revenue generated
+#### Returns the top x items ranked by total revenue generated
+- Test
+  - [ ] items/revenue_controller_spec.rb
+- Route
   - [ ] GET /api/v1/items/most_revenue?quantity=x
-- Returns the top x item instances ranked by total number sold
+- Controller
+  - [ ] items/revenue_controller.rb
+
+#### Returns the top x item instances ranked by total number sold
+- Test
+  - [ ] items/sales_controller_spec.rb
+- Route
   - [ ] GET /api/v1/items/most_items?quantity=x
-- Returns the date with the most sales for the given item using the invoice date. If there are multiple days with equal number of sales, return the most recent day.  
+- Controller
+  - [ ] items/sales_controller.rb
+#### Returns the date with the most sales for the given item using the invoice date. If there are multiple days with equal number of sales, return the most recent day.
+- Test
+  - [ ] Done
+- Route  
   - [ ] GET /api/v1/items/:id/best_day
+- Controller
+  - [ ] Done
 
 ## Customers
 ###  Basic Endpoints
-- Returns All Customers
-  - [x] GET  /api/v1/customers(.:format)        
-- Returns Single Customer
-  - [x] GET  /api/v1/customers/:id(.:format)  
+#### Returns All Customers
+- Test
+  - [ ] customers_controller_spec.rb
+- Route
+  - [ ] GET  /api/v1/customers(.:format)     
+- Controller
+  - [ ] Done customers_controller.rb(index)
+#### Returns Single Customer
+- Test
+  - [ ]  customers_controller_spec.rb
+- Route
+  - [ ] GET  /api/v1/customers/:id(.:format)
+- Controller
+  - [ ] customers_controller_spec.rb(show)
+
 ###  Relationship Endpoints
-- Returns a collection of associated invoices
+#### Returns a collection of associated invoices
+- Test
+  - [ ] customers/invoices_controller_spec.rb
+- Route
   - [ ] GET /api/v1/customers/:id/invoices
-Returns a collection of associated transactions
+- Controller
+  - [ ] customers/invoices_controller_spec.rb(index)
+
+#### Returns a collection of associated transactions
+- Test
+  - [ ] customers/transactions_controller_spec.rb
+- Route
   - [ ] GET /api/v1/customers/:id/transactions
+- Controller
+  - [ ] customers/invoices_controller.rb(index)
 
 ### Business Intelligence Endpoints  
-- Returns a merchant where the customer has conducted the most successful transactions
+
+##### Returns a merchant where the customer has conducted the most successful transactions
+- Test
+  - [ ] Done
+- Route
   - [ ] GET /api/v1/customers/:id/favorite_merchant
-- Returns a collection of associated transactions
-  - [ ] GET /api/v1/customers/:id/transactions
+- Controller
+  - [ ] Done
 
 ## Invoices
-#### Basic Endpoints
-- Returns all invoices
-  - [x] GET  /api/v1/invoices(.:format)
-- Returns Single Invoice
-  - [x] GET  /api/v1/invoices/id(.:format)  
+### Basic Endpoints
 
-####  Relationship Endpoints
-- Returns a collection of associated transactions
-  - [ ] GET /api/v1/invoices/:id/transactions
-- Returns a collection of associated invoice Items
+#### Returns all invoices
+- Test  
+  - [ ] invoices_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/invoices(.:format)
+- Controller
+  - [ ] invoices_controller.rb(index)
+#### Returns Single Invoice
+- Test  
+  - [ ] invoices_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/invoices/id(.:format)
+- Controller
+  - [ ] invoices_controller.rb(show)
+
+###  Relationship Endpoints
+
+#### Returns a collection of associated transactions
+  - Test
+    - [ ] invoices/transactions_controller_spec.rb
+  - Route
+    - [ ] GET /api/v1/invoices/:id/transactions
+  - Controller
+    - [ ] invoices/transactions_controller.rb(index)
+
+#### Returns a collection of associated invoice Items
+- Test
+  - [ ] invoices/invoice_items_controller_spec.rb
+- Routes
   - [ ] GET /api/v1/invoices/:id/invoice_items
-- Returns a collection of associated items
-  - [ ] GET /api/v1/invoices/:id/items
-- Returns a collection of associated customers
-  - [ ] GET /api/v1/invoices/:id/customer
-- Returns a collection of associated merchants
-  - [ ] GET /api/v1/invoices/:id/merchant
+- Controller
+  - [ ] invoices/invoice_items_controller.rb(index)
+#### Returns a collection of associated items
+  - Test
+    - [ ] invoices/items_controller_spec.rb
+  - Routes
+    - [ ] GET /api/v1/invoices/:id/items
+  - Controller
+    - [ ] Done invoices/items_controller.rb(index)
+#### Returns a collection of associated customers
+  - Test
+    - [ ] invoices/customers_controller_spec.rb
+  - Routes
+    - [ ] GET /api/v1/invoices/:id/customer
+  - Controller
+    - [ ] invoices/customers_controller.rb
+#### Returns a collection of associated merchants
+- Test
+  - [ ] invoices/merchants_controller_spec.rb
+- Routes
+  - [ ] GET /api/v1/invoices/:id/ merchant
+- Controller
+  - [ ] invoices/merchants_controller.rb
 
 ## Invoice Items
-#### Basic Endpoints
-- Returns all Invoice Item
-  - [x] GET  /api/v1/invoice_items(.:format)
-Returns single Invoice Irems
-- [x] GET  /api/v1/invoice_items/:id(.:format)
 
-####  Relationship Endpoints
-- Returns the associated invoice
+### Basic Endpoints
+#### Returns all Invoice Item
+Test
+  - [ ] invoices_items_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/invoice_items(.:format)
+- Controller
+  - [ ] invoices_items_controller.rb(index)
+#### Returns single Invoice Items
+- Test
+  - [ ] invoices_items_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/invoice_items/:id(.:format)
+- Controller  
+  - [ ] invoices_items_controller.rb(show)
+
+###  Relationship Endpoints
+
+#### Returns the associated invoice
+- Test
+  - [ ] invoices_items/invoices_controller_spec.rb
+- Routes
   - [ ] GET /api/v1/invoice_items/:id/invoice
-- Returns the associated item
+- Controller
+  - [ ] invoices_items/invoices_controller.rb(show)
+
+#### Returns the associated item
+- Test
+  - [ ] invoices_items/items_controller_spec.rb
+- Routes
   - [ ] GET /api/v1/invoice_items/:id/item
+- Controller
+  - [ ] invoices_items/items_controller_spec.rb(show)
 
 ## Transactions
 
-#### Basic Endpoints
-- Returns All Transactions
-  - [x] GET  /api/v1/transactions(.:format)      
-- Returns Single Transaction                                                   
-  - [x] GET  /api/v1/transactions/:id(.:for
+### Basic Endpoints
+#### Returns All Transactions
+- Test
+  - [ ] transactions_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/transactions
+- Controller
+  - [ ] /transactions_controller.rb(index)
+#### Returns Single Transaction
 
+- Test
+  - [ ] transactions_controller_spec.rb
+- Routes
+  - [ ] GET  /api/v1/transactions/:id
+- Controller
+  - [ ] transactions_controller_spec.rb(show)
 
-####  Relationship Endpoints
-- Returns the associated invoice
+### Relationship Endpoints
+
+#### Returns the associated invoice
+- Test
+  - [ ] transactions/invoices_controller_spec.rb
+- Routes
   - [ ] GET /api/v1/transactions/:id/invoice
+- Controller
+  - [ ] transactions/invoices_controlles.rb(show)
