@@ -22,7 +22,7 @@ RSpec.describe "Item InvoiceItems", type: :request do
     it "JSON body response contains expected merchant item attributes" do
       get "/api/v1/items/#{@lollipop.id}/invoice_items"
       json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
-      expect(json_response).to match_array(["invoice_id", "item_id", "quantity", "unit_price"])
+      expect(json_response).to match_array(["id", "invoice_id", "item_id", "quantity", "unit_price"])
      end
 
     it "JSON body response contains expected merchant data" do
@@ -30,7 +30,7 @@ RSpec.describe "Item InvoiceItems", type: :request do
 
       json_response = JSON.parse(response.body)["data"][0]["attributes"].values
 
-      expect(json_response).to match_array([@invoice_item_1.invoice_id, @invoice_item_1.item_id, @invoice_item_1.quantity, @invoice_item_1.unit_price])
+      expect(json_response).to match_array([@invoice_item_1.id, @invoice_item_1.invoice_id, @invoice_item_1.item_id, @invoice_item_1.quantity, @invoice_item_1.unit_price])
     end
   end
 end

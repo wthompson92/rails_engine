@@ -21,7 +21,7 @@ RSpec.describe "Invoices Items", type: :request do
       get '/api/v1/invoice_items'
         json_response = JSON.parse(response.body)['data'][0]["attributes"].keys
 
-        expect(json_response).to match_array(['item_id', 'invoice_id', 'quantity', 'unit_price'])
+        expect(json_response).to match_array(['id', 'item_id', 'invoice_id', 'quantity', 'unit_price'])
     end
 
     it "Show returns Status Success" do
@@ -35,13 +35,13 @@ RSpec.describe "Invoices Items", type: :request do
       get "/api/v1/invoice_items/#{@invoice_item.id}"
       json_response = JSON.parse(response.body)["data"]["attributes"].keys
 
-      expect(json_response).to match_array([ 'item_id', 'invoice_id', 'quantity', 'unit_price'])
+      expect(json_response).to match_array([ 'id', 'item_id', 'invoice_id', 'quantity', 'unit_price'])
     end
 
     it "JSON body response contains expected invoice item data" do
       get "/api/v1/invoice_items/#{@invoice_item.id}"
       json_response = JSON.parse(response.body)["data"]["attributes"].values
-      expect(json_response).to match_array([@invoice_item.item_id, @invoice_item.invoice_id, @invoice_item.quantity, @invoice_item.unit_price])
+      expect(json_response).to match_array([@invoice_item.id, @invoice_item.item_id, @invoice_item.invoice_id, @invoice_item.quantity, @invoice_item.unit_price])
     end
   end
 end

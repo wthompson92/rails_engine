@@ -17,7 +17,7 @@ RSpec.describe "invoices items", type: :request do
       get '/api/v1/customers'
       json_response = JSON.parse(response.body)['data'][0]["attributes"].keys
 
-      expect(json_response).to match_array(['first_name', 'last_name'])
+      expect(json_response).to match_array(['id', 'first_name', 'last_name'])
     end
 
     it "Show returns Status Success" do

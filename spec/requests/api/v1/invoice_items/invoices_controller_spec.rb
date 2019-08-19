@@ -5,7 +5,7 @@ RSpec.describe "InvoiceItem Invoice", type: :request do
     before :each do
       @wonka = Merchant.create(name: 'Wonka')
 
-      @lollipop = Item.create(name: 'lollipop', description: 'This is a lollipop', unit_price: 10, merchant_id: @wonka.id)
+      @lollipop = @wonka.items.create(name: 'lollipop', description: 'This is a lollipop', unit_price: 10, merchant_id: @wonka.id)
       @john = Customer.create(first_name: "John", last_name: "Smith")
 
       @invoice_1 = Invoice.create( customer_id: @john.id, merchant_id: @wonka.id, status: "shipped")
@@ -23,7 +23,8 @@ RSpec.describe "InvoiceItem Invoice", type: :request do
 
     it "JSON body response contains expected  invoice attributes" do
       get "/api/v1/invoice_items/#{@invoice_item_1.id}/invoice"
-      json_response = JSON.parse(response.body)["data"][0]["attributes"].keys
+      json_response = JSON.parse(response.body)
+      #["data"][0]["attributes"].keys
       expect(json_response).to match_array(["customer_id","id", "merchant_id", "status"])
      end
 

@@ -1,4 +1,7 @@
+Setup
+1. In the terminal run `git clone `
 # Merchants
+
 ## Basic Endpoints
 ### List of all Merchants
 - Test
@@ -40,9 +43,10 @@
 - Controller
   - [x]  /merchants/random_controller.rb(show)
 
+
 ## Relationship Endpoints  
 
-### Returns All Items For single merchants
+### Returns All Items for Single merchant
 - Test
   - [ ] /merchants/items_controller_spec.rb
 - Route
@@ -50,7 +54,7 @@
 - Controller
   - [x] /api/v1/merchants/items_controller.rb(index)
 
-### Returns All Invoices For single merchants
+### Returns All Invoices for Single merchant
 
 - Test
   - [ ] /merchants/invoices_controller_spec.rb
@@ -59,7 +63,9 @@
 - Controller
   - [x] /merchants/invoices_controller_spec.rb
 
+
 ## Business Intelligence Endpoints  
+
 
 ### All Merchants    
 
@@ -67,9 +73,9 @@
 - Test
   - [ ]  /merchants/revenue_controller_spec.rb
 - Route
-  - [ ] GET /api/v1/merchants/most_revenue?quantity=x
+  - [x] GET /api/v1/merchants/most_revenue?quantity=x
 - Controller
-  - [ ]  /merchants/invoices_controller.rb(index)
+  - [x]  /merchants/invoices_controller.rb(index)
 
 ### Returns the top x merchants ranked by total number of items sold
 - Test
@@ -90,6 +96,7 @@
 ### Single Merchant
 
 ### Returns the total revenue for that merchant across successful transactions
+
 - Test
   - [ ] Done ?
 - Route
@@ -155,9 +162,9 @@
 - Test  
   - [ ] items/merchants_controller_spec.rb
 - Route
-  - [ ] GET /api/v1/items/:id/merchant
+  - [x] GET /api/v1/items/:id/merchant
 - Controller
-  - [ ] items/merchants_controller.rb(index)
+  - [x] items/merchants_controller.rb(index)
 
 ## Business Intelligence Endpoints  
 
@@ -269,23 +276,23 @@
   - Test
     - [ ] invoices/items_controller_spec.rb
   - Routes
-    - [ ] GET /api/v1/invoices/:id/items
+    - [x] GET /api/v1/invoices/:id/items
   - Controller
-    - [ ] Done invoices/items_controller.rb(index)
+    - [x] Done invoices/items_controller.rb(index)
 ### Returns a collection of associated customers
   - Test
     - [ ] invoices/customers_controller_spec.rb
   - Routes
-    - [ ] GET /api/v1/invoices/:id/customer
+    - [x] GET /api/v1/invoices/:id/customer
   - Controller
-    - [ ] invoices/customers_controller.rb
+    - [x] invoices/customers_controller.rb
 ### Returns a collection of associated merchants
 - Test
   - [ ] invoices/merchants_controller_spec.rb
 - Routes
-  - [ ] GET /api/v1/invoices/:id/ merchant
+  - [x] GET /api/v1/invoices/:id/ merchant
 - Controller
-  - [ ] invoices/merchants_controller.rb
+  - [x] invoices/merchants_controller.rb
 
 # Invoice Items
 ## Basic Endpoints
@@ -310,17 +317,17 @@ Test
 - Test
   - [ ] invoices_items/invoices_controller_spec.rb
 - Routes
-  - [ ] GET /api/v1/invoice_items/:id/invoice
+  - [x] GET /api/v1/invoice_items/:id/invoice
 - Controller
-  - [ ] invoices_items/invoices_controller.rb(show)
+  - [x] invoices_items/invoices_controller.rb(show)
 
 ### Returns the associated item
 - Test
   - [ ] invoices_items/items_controller_spec.rb
 - Routes
-  - [ ] GET /api/v1/invoice_items/:id/item
+  - [x] GET /api/v1/invoice_items/:id/item
 - Controller
-  - [ ] invoices_items/items_controller_spec.rb(show)
+  - [x] invoices_items/items_controller_spec.rb(show)
 
 # Transactions
 
@@ -346,6 +353,6 @@ Test
 - Test
   - [ ] transactions/invoices_controller_spec.rb
 - Routes
-  - [ ] GET /api/v1/transactions/:id/invoice
+  - [x] GET /api/v1/transactions/:id/invoice
 - Controller
-  - [ ] transactions/invoices_controlles.rb(show)
+  - [x] transactions/invoices_controlles.rb(show)
