@@ -1,5 +1,15 @@
-Setup
-1. In the terminal run `git clone `
+# Setup
+
+#### In the terminal run
+1. `git clone git@github.com:wthompson92/rails_engine.git`
+2. `cd rails_engine`
+3. `rails db:{drop,create,migrate}`
+4. `rake import`
+5. `rails s`
+
+Thats it for Setup. Visit any of the endpoints by appending them to localhost:3000 in your browser after the server is running
+
+# Endpoints
 # Merchants
 
 ## Basic Endpoints
