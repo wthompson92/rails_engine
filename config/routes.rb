@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         get '/:id/revenue', to: 'revenue#show'
         get '/api/v1/merchants/most_items?quantity=x', to: 'most_items#index'
         # get '/api/v1/merchants/revenue?date=x'
-      # get '/api/v1/merchants/:id/revenue?date=x'
+        # get '/api/v1/merchants/:id/revenue?date=x'
         get  '/:id/favorite_customer' , to: 'customer#show'
         get '/:id/customers_with_pending_invoices' , to: 'customer#index'
       end

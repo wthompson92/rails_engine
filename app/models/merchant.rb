@@ -7,7 +7,7 @@ class Merchant < ApplicationRecord
    limit(1).order("RANDOM()")
   end
 
-  def self.most_revenue(quantity)
+  def self.most_revenue(quantity = 3)
     Merchant.select("merchants.*, SUM(invoice_items.unit_price*invoice_items.quantity) AS revenue")
             .group(:id)
             .joins([invoices: :transactions])
