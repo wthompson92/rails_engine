@@ -34,7 +34,7 @@ Thats it for Setup. Visit any of the endpoints by appending them to localhost:30
 
 ### Returns All Invoices for Single merchant
 
-  - ` /merchants/:id/invoices(.:format)`  
+  - `/merchants/:id/invoices(.:format)`  
 
 ## Business Intelligence Endpoints  
 
@@ -42,14 +42,13 @@ Thats it for Setup. Visit any of the endpoints by appending them to localhost:30
 ### All Merchants    
 
 ### Returns the top x merchants ranked by total revenue
-  - /api/v1/merchants/most_revenue?quantity=x
-- Controller
+  - `/api/v1/merchants/most_revenue?quantity=x`
 
 ### Returns the top x merchants ranked by total number of items sold
-  - /api/v1/merchants/most_items?quantity=x
+  - `/api/v1/merchants/most_items?quantity=x`
 
 ### Returns the total revenue for date x across all merchants
-  -  /api/v1/merchants/revenue?date=x
+  - `/api/v1/merchants/revenue?date=x`
 
 ### Single Merchant
 
@@ -164,9 +163,7 @@ Thats it for Setup. Visit any of the endpoints by appending them to localhost:30
 
 ### Returns Single Transaction
 
-
   - `/api/v1/transactions/:id`
-
 
 ## Relationship Endpoints
 ### Returns the associated invoice
