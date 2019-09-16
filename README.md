@@ -1,6 +1,6 @@
-# Setup
+## Setup
 
-#### In the terminal run
+### In the terminal run
 1. `git clone git@github.com:wthompson92/rails_engine.git`
 2. `cd rails_engine`
 3. `rails db:{drop,create,migrate}`
@@ -9,42 +9,38 @@
 
 Thats it for Setup. Visit any of the endpoints by appending them to localhost:3000 in your browser after the server is running
 
-# Endpoints
-# Merchants
+## Endpoints
 
-## Basic Endpoints
-### List of all Merchants
+### Merchants
+#### List of all Merchants
   - `/api/v1/merchants`
-### Single Merchant
+#### Single Merchant
   - `/api/v1/merchants/:id(.:format)`
-
-### Finds Single Merchant by given params
+#### Finds Single Merchant by given params
   - `/api/v1/merchants/find`
- 
-### Find All Merchants by given params
+#### Find All Merchants by given params
   - `/api/v1/merchants/find_all(.:format)`
-
-### Returns a Random Merchant
+#### Returns a Random Merchant
   - `/api/v1/merchants/random(.:format)`
 
-## Relationship Endpoints  
+### Relationship Endpoints  
 
-### Returns All Items for Single merchant
+#### Returns All Items for Single merchant
   -  `/api/v1/merchants/:id/items(.:format)`
 
-### Returns All Invoices for Single merchant
+#### Returns All Invoices for Single merchant
 
   - `/merchants/:id/invoices(.:format)`  
 
-## Business Intelligence Endpoints  
+### Business Intelligence Endpoints  
 
 
-### All Merchants    
+####ll Merchants    
 
-### Returns the top x merchants ranked by total revenue
+#### Returns the top x merchants ranked by total revenue
   - `/api/v1/merchants/most_revenue?quantity=x`
 
-### Returns the top x merchants ranked by total number of items sold
+#### Returns the top x merchants ranked by total number of items sold
   - `/api/v1/merchants/most_items?quantity=x`
 
 ### Returns the total revenue for date x across all merchants
@@ -66,9 +62,7 @@ Thats it for Setup. Visit any of the endpoints by appending them to localhost:30
 
   - `/api/v1/merchants/:id/customers_with_pending_invoices`
 
-# Items
-
-## Basic Endpoints
+## Items
 
 ### Returns All Items
 
@@ -114,11 +108,9 @@ Thats it for Setup. Visit any of the endpoints by appending them to localhost:30
 ## Business Intelligence Endpoints  
 
 ### Returns a merchant where the customer has conducted the most successful transactions
-
   - `/api/v1/customers/:id/favorite_merchant`
-  
-# Invoices
-## Basic Endpoints
+
+## Invoices
 ### Returns all invoices
   -  `/api/v1/invoices(.:format)`
 
@@ -146,6 +138,7 @@ Thats it for Setup. Visit any of the endpoints by appending them to localhost:30
 
 ### Returns Single Invoice Item
   - `/api/v1/invoice_items/:id(.:format)`
+
 ##  Relationship Endpoints
 
 ### Returns the associated invoice
